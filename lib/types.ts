@@ -45,5 +45,15 @@ export interface RestaurantParams {
 
   complexity_level: ComplexityLevel
 
+  menu_items?: MenuItem[]
   special_elements?: Record<string, unknown>
+}
+
+export interface MenuItem {
+  name: string
+  ingredients: string | null
+  price: number
+  note: string | null
+  color_hint?: string
+  mystery?: boolean
 }

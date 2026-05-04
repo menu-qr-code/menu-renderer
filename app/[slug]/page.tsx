@@ -4,6 +4,7 @@ import { notFound } from "next/navigation"
 import { getRestaurant } from "@/lib/getRestaurant"
 import { buildCssVars } from "@/lib/buildTheme"
 import { Hero } from "@/components/menu/Hero"
+import { MenuList } from "@/components/menu/MenuList"
 import { LoyaltyPopup } from "@/components/menu/LoyaltyPopup"
 
 interface Props {
@@ -32,35 +33,41 @@ export default async function MenuPage({ params }: Props) {
   if (!restaurant) notFound()
 
   const cssVars = buildCssVars(restaurant)
+  const cssVarsStyle = cssVars as React.CSSProperties
 
   return (
-    <main
-      style={{
-        ...Object.fromEntries(Object.entries(cssVars)),
-        background: "var(--color-bg)",
-        color: "var(--color-text)",
-        minHeight: "100svh",
-      }}
-    >
+    <main style={{ ...cssVarsStyle, minHeight: "100svh" }}>
       <Hero params={restaurant} />
 
-      <section
-        className="px-6"
-        style={{ paddingTop: "var(--section-pad)", paddingBottom: "var(--section-pad)" }}
-      >
-        <p
-          className="text-xs uppercase tracking-widest mb-8"
-          style={{ color: "var(--color-accent)", letterSpacing: "0.3em" }}
-        >
-          Menu
+      <section style={{ padding: "64px 24px 80px" }}>
+        <p style={{
+          fontFamily: "var(--font-grotesk), sans-serif",
+          fontSize: "10px",
+          letterSpacing: "0.3em",
+          textTransform: "uppercase",
+          color: "var(--color-accent)",
+          marginBottom: "40px",
+        }}>
+          {restaurant.type} — {restaurant.city}
         </p>
 
-        <p
-          className="text-sm"
-          style={{ color: "var(--color-muted)", lineHeight: 1.7, maxWidth: "32ch" }}
-        >
-          I piatti arriveranno qui — caricali dalla tua dashboard.
-        </p>
+        {restaurant.menu_items && restaurant.menu_items.length > 0 ? (
+          <MenuList
+            items={restaurant.menu_items}
+            accentColor={restaurant.accent_color}
+            textColor={restaurant.text_color}
+            mutedColor={restaurant.description_color}
+          />
+        ) : (
+          <p style={{
+            fontFamily: "var(--font-grotesk), sans-serif",
+            fontSize: "13px",
+            color: "var(--color-muted)",
+            lineHeight: 1.7,
+          }}>
+            Menu in aggiornamento.
+          </p>
+        )}
       </section>
 
       <LoyaltyPopup params={restaurant} />

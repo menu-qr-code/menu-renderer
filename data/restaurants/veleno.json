@@ -12,7 +12,7 @@
   "color_temperature": "cold-dark",
   "ui_color_intensity": 2,
   "richness_source": "content-photos",
-  "richness_note": "Il colore viene dai cocktail nelle foto — ambra del bourbon, viola del Nero di Seppia, verde dell'Il Dottore. L'UI è quasi nera: le foto sono l'unica fonte di colore. Le foto devono essere cinematiche e scure, non da studio.",
+  "richness_note": "Il colore viene dai cocktail nelle foto — ambra del bourbon, viola del Nero di Seppia, verde dell'Il Dottore.",
 
   "primary_palette": ["#090909", "#131313", "#1A1A1A"],
   "text_color": "#E8E0D0",
@@ -27,17 +27,54 @@
     "meta_labels": "Space Grotesk — 11px uppercase, tracking 0.3em"
   },
 
-  "border_radius": "0px — angoli netti, nessun arrotondamento",
-  "dividers": "1px rgba(201,168,76,0.15) — oro quasi invisibile",
+  "border_radius": "0px",
+  "dividers": "1px rgba(201,168,76,0.15)",
 
-  "has_video": true,
-  "video_integration": "Banner gold in cima: '▶ GUARDA COME NASCE IL NERO DI SEPPIA'. Con video reale diventa scroll-cinema hero.",
+  "has_video": false,
+  "video_integration": "▶ GUARDA COME NASCE IL NERO DI SEPPIA",
 
   "complexity_level": "complex",
 
+  "menu_items": [
+    {
+      "name": "Nero di Seppia",
+      "ingredients": "Vodka al carbone attivo / Succo di limone / Sciroppo di seppia / Albume / Sale nero",
+      "price": 14,
+      "note": "Il nero non è un colore. È una dichiarazione.",
+      "color_hint": "#1a0a1a"
+    },
+    {
+      "name": "Il Dottore",
+      "ingredients": "Gin infuso al rosmarino / Chartreuse verde / Succo di lime / Acqua tonica",
+      "price": 13,
+      "note": "Una cura che non ti aspettavi.",
+      "color_hint": "#0a1a0a"
+    },
+    {
+      "name": "Bourbon Sour",
+      "ingredients": "Bourbon / Succo di limone / Sciroppo di zucchero / Albume d'uovo",
+      "price": 12,
+      "note": null,
+      "color_hint": "#1a0f00"
+    },
+    {
+      "name": "Mezcal Negroni",
+      "ingredients": "Mezcal / Campari / Vermouth rosso / Scorzetta d'arancia",
+      "price": 13,
+      "note": null,
+      "color_hint": "#1a0500"
+    },
+    {
+      "name": "Veleno n.7",
+      "ingredients": null,
+      "price": 15,
+      "note": null,
+      "color_hint": "#090909",
+      "mystery": true
+    }
+  ],
+
   "special_elements": {
-    "veleno_n7": "Cocktail misterioso: quadrato nero + punto interrogativo gold. Nessuna foto, nessuna descrizione ingredienti.",
-    "hero_photo": "Bartender che versa liquido ambrato in penombra, bokeh gold, grain cinematico",
     "no_rounded_pills": true,
     "no_card_grid": true,
     "no_bright_cta": true
