@@ -32,9 +32,6 @@ export default async function MenuPage({ params }: Props) {
   if (!restaurant) notFound()
 
   const cssVars = buildCssVars(restaurant)
-  const rootStyle = Object.entries(cssVars)
-    .map(([k, v]) => `${k}: ${v}`)
-    .join("; ")
 
   return (
     <main

@@ -61,7 +61,7 @@ export function HeroScrollVideo({ params }: { params: RestaurantParams }) {
         <h1
           className="leading-none mb-8"
           style={{
-            fontFamily: "serif",
+            fontFamily: "var(--font-serif), serif",
             fontSize: "clamp(56px, 14vw, 96px)",
             fontWeight: 400,
             letterSpacing: "-0.04em",

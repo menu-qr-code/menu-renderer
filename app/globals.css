@@ -9,5 +9,10 @@
 body {
   background: var(--color-bg, #090909);
   color: var(--color-text, #E8E0D0);
+  font-family: var(--font-grotesk), sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif), serif;
 }

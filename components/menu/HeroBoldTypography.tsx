@@ -18,7 +18,7 @@ export function HeroBoldTypography({ params }: { params: RestaurantParams }) {
       <h1
         className="leading-none"
         style={{
-          fontFamily: "serif",
+          fontFamily: "var(--font-serif), serif",
           fontSize: "clamp(64px, 18vw, 140px)",
           fontWeight: 700,
           letterSpacing: "-0.05em",
