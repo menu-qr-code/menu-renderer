@@ -1,0 +1,45 @@
+{
+  "restaurant": "Veleno",
+  "type": "cocktail-bar",
+  "city": "Milano",
+
+  "emotional_tone": "mysterious",
+  "motion_intensity": 8,
+  "layout_density": 3,
+  "hero_type": "scroll-video",
+  "interaction_mode": "immersive",
+
+  "color_temperature": "cold-dark",
+  "ui_color_intensity": 2,
+  "richness_source": "content-photos",
+  "richness_note": "Il colore viene dai cocktail nelle foto — ambra del bourbon, viola del Nero di Seppia, verde dell'Il Dottore. L'UI è quasi nera: le foto sono l'unica fonte di colore. Le foto devono essere cinematiche e scure, non da studio.",
+
+  "primary_palette": ["#090909", "#131313", "#1A1A1A"],
+  "text_color": "#E8E0D0",
+  "accent_color": "#C9A84C",
+  "description_color": "#8A7F72",
+
+  "typography": {
+    "display": "Noto Serif — 72px, tracking -0.04em, weight 400",
+    "cocktail_name": "Noto Serif — 20-24px, tracking 0.05em",
+    "ingredients": "Space Grotesk — 12px, tracking 0.15em, uppercase per labels",
+    "price": "Space Grotesk — gold #C9A84C, right-aligned",
+    "meta_labels": "Space Grotesk — 11px uppercase, tracking 0.3em"
+  },
+
+  "border_radius": "0px — angoli netti, nessun arrotondamento",
+  "dividers": "1px rgba(201,168,76,0.15) — oro quasi invisibile",
+
+  "has_video": true,
+  "video_integration": "Banner gold in cima: '▶ GUARDA COME NASCE IL NERO DI SEPPIA'. Con video reale diventa scroll-cinema hero.",
+
+  "complexity_level": "complex",
+
+  "special_elements": {
+    "veleno_n7": "Cocktail misterioso: quadrato nero + punto interrogativo gold. Nessuna foto, nessuna descrizione ingredienti.",
+    "hero_photo": "Bartender che versa liquido ambrato in penombra, bokeh gold, grain cinematico",
+    "no_rounded_pills": true,
+    "no_card_grid": true,
+    "no_bright_cta": true
+  }
+}
