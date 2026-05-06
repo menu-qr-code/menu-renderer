@@ -590,6 +590,7 @@ const ExpandableComponent = React.forwardRef<HTMLDivElement, {
   const toggleExpand = onToggle || (() => setIsExpandedInternal((prev) => !prev));
   return (
     <ExpandableContext.Provider value={{ isExpanded, toggleExpand, expandDirection, expandBehavior, transitionDuration, easeType, initialDelay }}>
+      {/* @ts-ignore framer-motion onAnimationStart type mismatch */}
       <motion.div ref={ref} initial={false}
         transition={{ duration: transitionDuration, ease: easeType as any, delay: initialDelay }}>
         {typeof children === "function" ? children({ isExpanded }) : children}
