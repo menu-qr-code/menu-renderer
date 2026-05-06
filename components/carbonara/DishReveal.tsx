@@ -1,13 +1,13 @@
 "use client"
 
-import { motion } from "motion/react"
+import { motion, type Variants } from "motion/react"
 
-const stagger = {
+const stagger: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.18 } },
 }
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 36 },
   visible: {
     opacity: 1,
@@ -16,7 +16,7 @@ const fadeUp = {
   },
 }
 
-const lineReveal = {
+const lineReveal: Variants = {
   hidden: { scaleX: 0 },
   visible: {
     scaleX: 1,
