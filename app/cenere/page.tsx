@@ -165,7 +165,7 @@ function ElegantShape({
     <motion.div
       initial={{ opacity: 0, y: -150, rotate: rotate - 15 }}
       animate={{ opacity: 1, y: 0, rotate }}
-      transition={{ duration: 2.4, delay, ease: [0.23, 0.86, 0.39, 0.96], opacity: { duration: 1.2 } }}
+      transition={{ duration: 2.4, delay, ease: [0.23, 0.86, 0.39, 0.96] as [number, number, number, number], opacity: { duration: 1.2 } }}
       className={cn("absolute", className)}
     >
       <motion.div
@@ -193,7 +193,7 @@ function HeroGeometric({ badge, title1, title2 }: { badge?: string; title1?: str
     hidden: { opacity: 0, y: 30 },
     visible: (i: number) => ({
       opacity: 1, y: 0,
-      transition: { duration: 1, delay: 0.5 + i * 0.2, ease: [0.25, 0.4, 0.25, 1] },
+      transition: { duration: 1, delay: 0.5 + i * 0.2, ease: [0.25, 0.4, 0.25, 1] as [number, number, number, number] },
     }),
   };
   return (
