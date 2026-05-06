@@ -1,2 +1,5 @@
-import OssidianaPage from './ossidiana/page'
-export default OssidianaPage
+import { redirect } from 'next/navigation'
+
+export default function Home() {
+  redirect('/niwa')
+}
