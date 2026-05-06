@@ -569,7 +569,8 @@ const ExpandableContext = createContext<ExpandableContextType>({
 });
 const useExpandable = () => useContext(ExpandableContext);
 
-const ANIMATION_PRESETS: Record<string, { initial: object; animate: object; exit: object }> = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ANIMATION_PRESETS: Record<string, { initial: any; animate: any; exit: any }> = {
   "slide-up":  { initial: { opacity: 0, y: 20 },  animate: { opacity: 1, y: 0 },  exit: { opacity: 0, y: 20 } },
   "blur-md":   { initial: { opacity: 0, filter: "blur(8px)" }, animate: { opacity: 1, filter: "blur(0px)" }, exit: { opacity: 0, filter: "blur(8px)" } },
   "fade":      { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 } },
@@ -580,7 +581,7 @@ const ExpandableComponent = React.forwardRef<HTMLDivElement, {
   expanded?: boolean; onToggle?: () => void; transitionDuration?: number; easeType?: string;
   expandDirection?: "vertical" | "horizontal" | "both"; expandBehavior?: "replace" | "push";
   initialDelay?: number;
-} & React.HTMLAttributes<HTMLDivElement>>(({
+} & Omit<React.HTMLAttributes<HTMLDivElement>, 'transition'>>(({
   children, expanded, onToggle, transitionDuration = 0.3, easeType = "easeInOut",
   expandDirection = "vertical", expandBehavior = "replace", initialDelay = 0, ...props
 }, ref) => {
@@ -590,7 +591,7 @@ const ExpandableComponent = React.forwardRef<HTMLDivElement, {
   return (
     <ExpandableContext.Provider value={{ isExpanded, toggleExpand, expandDirection, expandBehavior, transitionDuration, easeType, initialDelay }}>
       <motion.div ref={ref} initial={false}
-        animate={{ transition: { duration: transitionDuration, ease: easeType, delay: initialDelay } }} {...props}>
+        transition={{ duration: transitionDuration, ease: easeType as any, delay: initialDelay }} {...props}>
         {typeof children === "function" ? children({ isExpanded }) : children}
       </motion.div>
     </ExpandableContext.Provider>
@@ -601,7 +602,7 @@ ExpandableComponent.displayName = "ExpandableComponent";
 const ExpandableContent = React.forwardRef<HTMLDivElement, {
   children: React.ReactNode; preset?: keyof typeof ANIMATION_PRESETS;
   stagger?: boolean; staggerChildren?: number; keepMounted?: boolean;
-} & React.HTMLAttributes<HTMLDivElement>>(({ children, preset, stagger = false, staggerChildren = 0.1, keepMounted = false, ...props }, ref) => {
+} & Omit<React.HTMLAttributes<HTMLDivElement>, 'transition'>>(({ children, preset, stagger = false, staggerChildren = 0.1, keepMounted = false, ...props }, ref) => {
   const { isExpanded, transitionDuration, easeType } = useExpandable();
   const [measureRef, { height: measuredHeight }] = useMeasure();
   const animatedHeight = useMotionValue(0);
@@ -610,11 +611,11 @@ const ExpandableContent = React.forwardRef<HTMLDivElement, {
   const presetAnim = preset ? ANIMATION_PRESETS[preset] : { initial: {}, animate: {}, exit: {} };
   return (
     <motion.div ref={ref} style={{ height: smoothHeight, overflow: "hidden" }}
-      transition={{ duration: transitionDuration, ease: easeType }} {...props}>
+      transition={{ duration: transitionDuration, ease: easeType as any }} {...props}>
       <AnimatePresence initial={false}>
         {(isExpanded || keepMounted) && (
           <motion.div ref={measureRef} initial={presetAnim.initial} animate={presetAnim.animate} exit={presetAnim.exit}
-            transition={{ duration: transitionDuration, ease: easeType }}>
+            transition={{ duration: transitionDuration, ease: easeType as any }}>
             {stagger ? (
               <motion.div variants={{ hidden: {}, visible: { transition: { staggerChildren } } }} initial="hidden" animate="visible">
                 {React.Children.map(children as React.ReactNode, (child, index) => (
@@ -885,7 +886,7 @@ function MenuSection({ items }: { items: typeof COCKTAIL }) {
 function FeaturedCocktail() {
   return (
     <ExpandableComponent expandDirection="both" expandBehavior="replace" initialDelay={0.1}>
-      {({ isExpanded }) => (
+      {(({ isExpanded }: { isExpanded: boolean }) => (
         <ExpandableTrigger>
           <ExpandableCard collapsedSize={{ width: 340, height: 260 }} expandedSize={{ width: 480, height: 420 }}
             hoverToExpand={false} expandDelay={150} collapseDelay={300}>
@@ -927,7 +928,7 @@ function FeaturedCocktail() {
             </ExpandableCardContent>
           </ExpandableCard>
         </ExpandableTrigger>
-      )}
+      )) as unknown as React.ReactNode}
     </ExpandableComponent>
   );
 }
