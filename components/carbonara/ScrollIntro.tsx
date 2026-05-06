@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
-import NextImage from "next/image"
 
 const FRAME_COUNT = 121
 const framePath = (i: number) =>
@@ -122,16 +121,15 @@ export default function ScrollIntro() {
             >
               {/* First frame blurred as bg */}
               <motion.div
-                className="absolute inset-0"
+                className="absolute inset-0 overflow-hidden"
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
-                <NextImage
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src="/frames/carbonara/frame_0001.jpg"
                   alt=""
-                  fill
-                  priority
-                  className="object-cover"
+                  className="w-full h-full object-cover"
                   style={{ filter: "blur(14px)", transform: "scale(1.15)" }}
                 />
               </motion.div>
