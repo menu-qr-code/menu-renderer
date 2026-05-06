@@ -15,8 +15,8 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "Cenere — Milano",
-  description: "Cocktail bar · Via Tortona 14 · Milano",
+  title: "Ossidiana — Milano",
+  description: "Ristorante di mare · Via Navigli 7 · Milano",
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
