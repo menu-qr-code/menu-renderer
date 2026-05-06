@@ -1,27 +1,27 @@
 import type { Metadata } from "next"
-import { Noto_Serif, Space_Grotesk } from "next/font/google"
+import { Playfair_Display, DM_Sans } from "next/font/google"
 import "./globals.css"
 
-const notoSerif = Noto_Serif({
-  variable: "--font-serif",
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  variable: "--font-playfair",
+  display: "swap",
 })
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-grotesk",
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  variable: "--font-dm-sans",
+  display: "swap",
 })
 
 export const metadata: Metadata = {
-  title: "Menu",
-  description: "Menu digitale",
+  title: "Cenere — Milano",
+  description: "Cocktail bar · Via Tortona 14 · Milano",
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="it" className={`${notoSerif.variable} ${spaceGrotesk.variable}`}>
+    <html lang="it" className={`${playfair.variable} ${dmSans.variable}`}>
       <body>{children}</body>
     </html>
   )

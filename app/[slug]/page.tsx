@@ -1,8 +1,8 @@
-import { readdirSync } from "fs"
+import { readFileSync, readdirSync } from "fs"
 import { join } from "path"
 import { notFound } from "next/navigation"
-import { getRestaurant } from "@/lib/getRestaurant"
-import { CinematicMenu } from "@/components/menu/CinematicMenu"
+import { MenuClient } from "@/components/menu/MenuClient"
+import type { RestaurantData } from "@/components/menu/types"
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -10,21 +10,30 @@ interface Props {
 
 export async function generateStaticParams() {
   const dir = join(process.cwd(), "data", "restaurants")
-  const files = readdirSync(dir).filter(f => f.endsWith(".json"))
-  return files.map(f => ({ slug: f.replace(".json", "") }))
+  const files = readdirSync(dir).filter((f) => f.endsWith(".json"))
+  return files.map((f) => ({ slug: f.replace(".json", "") }))
 }
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params
-  const r = await getRestaurant(slug)
-  if (!r) return {}
-  return { title: r.restaurant }
+  try {
+    const data: RestaurantData = JSON.parse(
+      readFileSync(join(process.cwd(), "data", "restaurants", `${slug}.json`), "utf-8")
+    )
+    return { title: `${data.restaurant} — Menu` }
+  } catch {
+    return {}
+  }
 }
 
-export default async function MenuPage({ params }: Props) {
+export default async function Page({ params }: Props) {
   const { slug } = await params
-  const restaurant = await getRestaurant(slug)
-  if (!restaurant) notFound()
-
-  return <CinematicMenu restaurant={restaurant} />
+  try {
+    const data: RestaurantData = JSON.parse(
+      readFileSync(join(process.cwd(), "data", "restaurants", `${slug}.json`), "utf-8")
+    )
+    return <MenuClient data={data} />
+  } catch {
+    notFound()
+  }
 }

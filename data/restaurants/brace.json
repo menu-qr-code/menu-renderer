@@ -1,0 +1,138 @@
+{
+  "restaurant": "Brace",
+  "tagline": "Il fuoco è tutto quello che siamo.",
+  "type": "Cucina di brace contemporanea",
+  "city": "Milano",
+  "richness_source": "photo",
+  "hero_image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=90&fit=crop",
+  "hero_images": [
+    "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=800&q=90&fit=crop",
+    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=90&fit=crop",
+    "https://images.unsplash.com/photo-1600891964092-4316c288032e?w=800&q=90&fit=crop",
+    "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=90&fit=crop",
+    "https://images.unsplash.com/photo-1558030006-450675393462?w=800&q=90&fit=crop",
+    "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=90&fit=crop"
+  ],
+  "palette": {
+    "bg": "#0D0A08",
+    "surface": "#1A140F",
+    "text": "#F5EDD8",
+    "muted": "#8A7060",
+    "accent": "#C4712A",
+    "divider": "rgba(196,113,42,0.12)"
+  },
+  "fonts": {
+    "display": "Playfair Display",
+    "body": "DM Sans"
+  },
+  "sections": [
+    {
+      "id": "antipasti",
+      "title": "Antipasti",
+      "items": [
+        {
+          "name": "Tartare di manzo alla brace",
+          "description": "Manzo marinato, tuorlo d'uovo, nocciole tostate, pane di segale brustolito",
+          "price": 18,
+          "photo": "https://images.unsplash.com/photo-1546039907-7fa05f864c02?w=600&q=80&fit=crop"
+        },
+        {
+          "name": "Verdure di stagione alla griglia",
+          "description": "Zucchine, melanzane, peperoni, olio EVO, erbe aromatiche di Pantelleria",
+          "price": 14,
+          "photo": "https://images.unsplash.com/photo-1543826173-1beeb97525d8?w=600&q=80&fit=crop"
+        },
+        {
+          "name": "Osso midollo alla brace",
+          "description": "Gremolata di prezzemolo e limone, crostini di pane di segale",
+          "price": 16,
+          "photo": "https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600&q=80&fit=crop"
+        },
+        {
+          "name": "Polpo alla griglia",
+          "description": "Polpo verace, patate schiacciate, paprika affumicata, limone confit",
+          "price": 20,
+          "photo": "https://images.unsplash.com/photo-1534482421-64566f976cfa?w=600&q=80&fit=crop"
+        }
+      ]
+    },
+    {
+      "id": "primi",
+      "title": "Primi",
+      "items": [
+        {
+          "name": "Spaghetti al fumo di brace",
+          "description": "Spaghettoni, guanciale croccante, pecorino affumicato, olio bruciante",
+          "price": 22,
+          "photo": "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&q=80&fit=crop"
+        },
+        {
+          "name": "Risotto alla cenere",
+          "description": "Riso Carnaroli, cipolla bruciata, parmigiano 36 mesi, olio all'aglio nero",
+          "price": 24,
+          "photo": "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=600&q=80&fit=crop"
+        },
+        {
+          "name": "Tagliolini al ragù di costina",
+          "description": "Pasta fresca, stracotto di costina, riduzione di vino rosso Barolo",
+          "price": 20,
+          "photo": "https://images.unsplash.com/photo-1551183053-bf91798d047e?w=600&q=80&fit=crop"
+        }
+      ]
+    },
+    {
+      "id": "brace",
+      "title": "Dalla Brace",
+      "items": [
+        {
+          "name": "Costata di Fassona piemontese",
+          "description": "600g, cottura al cuore, fleur de sel di Camargue, pepe nero macinato",
+          "price": 48,
+          "photo": "https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=80&fit=crop"
+        },
+        {
+          "name": "Pork ribs affumicati 12 ore",
+          "description": "Rack di costolette, glassa di bourbon e miele di castagno, coleslaw",
+          "price": 32,
+          "photo": "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80&fit=crop"
+        },
+        {
+          "name": "Pollo alla diavola",
+          "description": "Marinato 24h, peperoncino calabrese, limone bruciato, rosmarino",
+          "price": 26,
+          "photo": "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=600&q=80&fit=crop"
+        },
+        {
+          "name": "Agnello alla brace",
+          "description": "Costolette di agnello, aglio arrosto, mentuccia, jus ristretto",
+          "price": 36,
+          "photo": "https://images.unsplash.com/photo-1574484284002-952d92456975?w=600&q=80&fit=crop"
+        }
+      ]
+    },
+    {
+      "id": "dolci",
+      "title": "Dolci",
+      "items": [
+        {
+          "name": "Pera alla brace",
+          "description": "Pera Williams grigliata, crema di mascarpone, miele di castagno",
+          "price": 12,
+          "photo": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80&fit=crop"
+        },
+        {
+          "name": "Cioccolato fondente bruciato",
+          "description": "Ganache al carbone vegetale, caramello salato, gelato fiordilatte",
+          "price": 11,
+          "photo": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600&q=80&fit=crop"
+        },
+        {
+          "name": "Torta di mele della nonna",
+          "description": "Mele renette, cannella, pasta frolla brûlée, crema inglese",
+          "price": 10,
+          "photo": "https://images.unsplash.com/photo-1519915028121-7d3463d20b13?w=600&q=80&fit=crop"
+        }
+      ]
+    }
+  ]
+}
