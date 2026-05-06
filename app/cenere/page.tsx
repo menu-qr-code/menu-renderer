@@ -583,7 +583,7 @@ const ExpandableComponent = React.forwardRef<HTMLDivElement, {
   initialDelay?: number;
 }>(({
   children, expanded, onToggle, transitionDuration = 0.3, easeType = "easeInOut",
-  expandDirection = "vertical", expandBehavior = "replace", initialDelay = 0, ...props
+  expandDirection = "vertical", expandBehavior = "replace", initialDelay = 0,
 }, ref) => {
   const [isExpandedInternal, setIsExpandedInternal] = useState(false);
   const isExpanded = expanded !== undefined ? expanded : isExpandedInternal;
@@ -591,7 +591,7 @@ const ExpandableComponent = React.forwardRef<HTMLDivElement, {
   return (
     <ExpandableContext.Provider value={{ isExpanded, toggleExpand, expandDirection, expandBehavior, transitionDuration, easeType, initialDelay }}>
       <motion.div ref={ref} initial={false}
-        transition={{ duration: transitionDuration, ease: easeType as any, delay: initialDelay }} {...props}>
+        transition={{ duration: transitionDuration, ease: easeType as any, delay: initialDelay }}>
         {typeof children === "function" ? children({ isExpanded }) : children}
       </motion.div>
     </ExpandableContext.Provider>
@@ -602,7 +602,7 @@ ExpandableComponent.displayName = "ExpandableComponent";
 const ExpandableContent = React.forwardRef<HTMLDivElement, {
   children: React.ReactNode; preset?: keyof typeof ANIMATION_PRESETS;
   stagger?: boolean; staggerChildren?: number; keepMounted?: boolean;
-}>(({ children, preset, stagger = false, staggerChildren = 0.1, keepMounted = false, ...props }, ref) => {
+}>(({ children, preset, stagger = false, staggerChildren = 0.1, keepMounted = false }, ref) => {
   const { isExpanded, transitionDuration, easeType } = useExpandable();
   const [measureRef, { height: measuredHeight }] = useMeasure();
   const animatedHeight = useMotionValue(0);
@@ -611,7 +611,7 @@ const ExpandableContent = React.forwardRef<HTMLDivElement, {
   const presetAnim = preset ? ANIMATION_PRESETS[preset] : { initial: {}, animate: {}, exit: {} };
   return (
     <motion.div ref={ref} style={{ height: smoothHeight, overflow: "hidden" }}
-      transition={{ duration: transitionDuration, ease: easeType as any }} {...props}>
+      transition={{ duration: transitionDuration, ease: easeType as any }}>
       <AnimatePresence initial={false}>
         {(isExpanded || keepMounted) && (
           <motion.div ref={measureRef} initial={presetAnim.initial} animate={presetAnim.animate} exit={presetAnim.exit}
