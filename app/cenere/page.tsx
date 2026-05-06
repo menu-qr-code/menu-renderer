@@ -581,7 +581,7 @@ const ExpandableComponent = React.forwardRef<HTMLDivElement, {
   expanded?: boolean; onToggle?: () => void; transitionDuration?: number; easeType?: string;
   expandDirection?: "vertical" | "horizontal" | "both"; expandBehavior?: "replace" | "push";
   initialDelay?: number;
-} & Omit<React.HTMLAttributes<HTMLDivElement>, 'transition'>>(({
+}>(({
   children, expanded, onToggle, transitionDuration = 0.3, easeType = "easeInOut",
   expandDirection = "vertical", expandBehavior = "replace", initialDelay = 0, ...props
 }, ref) => {
@@ -602,7 +602,7 @@ ExpandableComponent.displayName = "ExpandableComponent";
 const ExpandableContent = React.forwardRef<HTMLDivElement, {
   children: React.ReactNode; preset?: keyof typeof ANIMATION_PRESETS;
   stagger?: boolean; staggerChildren?: number; keepMounted?: boolean;
-} & Omit<React.HTMLAttributes<HTMLDivElement>, 'transition'>>(({ children, preset, stagger = false, staggerChildren = 0.1, keepMounted = false, ...props }, ref) => {
+}>(({ children, preset, stagger = false, staggerChildren = 0.1, keepMounted = false, ...props }, ref) => {
   const { isExpanded, transitionDuration, easeType } = useExpandable();
   const [measureRef, { height: measuredHeight }] = useMeasure();
   const animatedHeight = useMotionValue(0);
